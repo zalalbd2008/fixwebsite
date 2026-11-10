@@ -1,0 +1,32 @@
+{
+  "name": "fixwebsiteissues-react",
+  "version": "1.0.0",
+  "private": true,
+  "description": "fixwebsiteissues.com rebuilt with React (Next.js) on Node.js — same pages, posts and URLs.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "node server.mjs",
+    "start:next": "next start",
+    "extract": "node tools/extract.mjs ../scrape"
+  },
+  "dependencies": {
+    "html-react-parser": "6.1.9",
+    "next": "15.5.28",
+    "nodemailer": "7.0.10",
+    "react": "19.2.9",
+    "react-dom": "19.2.9"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.0",
+    "@types/nodemailer": "^7.0.2",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "cheerio": "^1.0.0",
+    "p-limit": "6.2.0",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

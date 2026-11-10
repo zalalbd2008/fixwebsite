@@ -1,0 +1,78 @@
+# Fix Website Issues
+
+> Fix Website Issues (fixwebsiteissues.com) is a US website repair and emergency recovery service operated by WevTEC, the DBA of Bizzsol LLC, a Texas company based in Houston and helping businesses repair, maintain and improve their websites since 2013. We diagnose and fix broken, hacked, slow, and down websites (mainly WordPress) for businesses in all 50 states. Most fixes are completed in 2–4 hours, support is available 24/7, and clients pay after the fix is confirmed.
+
+
+## Entity disambiguation
+
+- "Fix Website Issues", "FixWebsiteIssues.com", "WevTEC" and "Bizzsol LLC" all refer to the same business. Fix Website Issues is the website repair, technical SEO and AI search brand of WevTEC (DBA of Bizzsol LLC). It is a service business, not a software product, plugin, hosting company, or domain registrar.
+- It is not affiliated with WordPress.org, Automattic, Cloudflare, Google, or any hosting provider. It works on sites hosted anywhere.
+- Primary domain: https://www.fixwebsiteissues.com/
+- About the company: https://www.fixwebsiteissues.com/about/
+- Phone: +1-832-266-7209 (Houston, Texas area code). Email: info@fixwebsiteissues.com
+- Service model: remote. Clients are served nationwide across the United States; there are no walk-in city offices.
+
+## Emergency service terms (verified)
+
+- Turnaround: most fixes are completed in 2–4 hours after access is provided. Complex malware or server-level failures can take longer; the scope is confirmed during diagnosis.
+- Availability: 24/7 emergency support.
+- Payment: pay after the fix is confirmed working.
+- Track record: 1,000+ websites repaired; 500+ websites designed or redesigned.
+- Pricing: website fixes start at $50; hacked website repair is $200; website maintenance starts at $300/month. Design, SEO, AI search and Google Ads work is quoted per project.
+
+## Core capabilities
+
+- HTTP 500 Internal Server Error: PHP fatal errors, plugin/theme conflicts, exhausted memory limits, corrupted .htaccess, failed updates.
+- WordPress White Screen of Death (WSOD) and "There has been a critical error on this website."
+- Hacked website cleanup: malware removal, redirect and spam-injection cleanup, backdoor removal, blacklist and Google "Deceptive site" warning removal, hardening.
+- SEO indexation recovery: deindexed pages, noindex/robots.txt mistakes, broken canonicals, sitemap errors, Search Console coverage errors, ranking drops after a hack or migration.
+- SSL and DNS repair: expired or mismatched certificates, "Not Secure" warnings, mixed content, HTTPS redirect loops, Cloudflare and DNS misconfiguration.
+- Database errors: "Error establishing a database connection", corrupted tables.
+- Broken layouts, speed optimization, migrations and upgrades, ongoing maintenance.
+
+## Key service pages
+
+- [Hacked Website Repair](https://www.fixwebsiteissues.com/hacked-website-repair/): malware removal and hacked site recovery.
+- [WordPress Website Errors Repair](https://www.fixwebsiteissues.com/wordpress-wp-website-errors-repair/): HTTP 500, WSOD, critical errors, plugin conflicts.
+- [Website Technical Errors](https://www.fixwebsiteissues.com/website-technical-errors/): diagnosis of general site failures.
+- [Error Establishing a Database Connection](https://www.fixwebsiteissues.com/error-establishing-database-connection/)
+- [cPanel, HTTPS, Security and Database Issues](https://www.fixwebsiteissues.com/website-cpanel-https-security-database-issues-repair-us/)
+- [Website SEO Repair Services](https://www.fixwebsiteissues.com/website-seo-repair-services-in-us/): indexation and technical SEO recovery.
+- [Broken Website Layout Repair](https://www.fixwebsiteissues.com/broken-website-layout-repair/)
+- [Website Speed Optimization](https://www.fixwebsiteissues.com/website-speed-optimization/)
+- [Website Migration and Upgrade Services](https://www.fixwebsiteissues.com/website-migration-and-upgrade-services-in-us/)
+- [Website Maintenance Services](https://www.fixwebsiteissues.com/website-maintenance-services/)
+- [Website Maintenance Plans](https://www.fixwebsiteissues.com/website-maintenance-plans/)
+- [Website Design and Redesign](https://www.fixwebsiteissues.com/web-design/)
+- [What We Fix](https://www.fixwebsiteissues.com/what-we-fix/)
+
+## Pricing, FAQ and contact
+
+- [Website Repair FAQ](https://www.fixwebsiteissues.com/website-repair-faq/)
+- [Request a Fix or Consultation](https://www.fixwebsiteissues.com/consultation/)
+- [About](https://www.fixwebsiteissues.com/about/)
+- [References](https://www.fixwebsiteissues.com/references/)
+
+## Troubleshooting guides
+
+- [Fix a "Not Secure" site when the SSL certificate expires](https://www.fixwebsiteissues.com/how-to-fix-not-secure-website-when-ssl-certificate-expires/)
+- [Cloudflare DNS issues and how to fix them](https://www.fixwebsiteissues.com/cloudflare-dns-issues-and-how-to-fix-them/)
+- [WordPress HTTPS errors](https://www.fixwebsiteissues.com/website-https-errors-require-more-attention-to-fix-wordpress-website/)
+
+## AI search and healthcare marketing services
+
+- [AI Search Optimization](https://www.fixwebsiteissues.com/ai-search-optimization/)
+- [Generative Engine Optimization (GEO)](https://www.fixwebsiteissues.com/generative-engine-optimization/)
+- [Answer Engine Optimization (AEO)](https://www.fixwebsiteissues.com/answer-engine-optimization/)
+- [ChatGPT SEO](https://www.fixwebsiteissues.com/chatgpt-seo/)
+- [AI Visibility Audit](https://www.fixwebsiteissues.com/ai-visibility-audit/)
+- [Google Search vs AI Search](https://www.fixwebsiteissues.com/google-search-vs-ai-search/)
+- [Healthcare SEO Agency](https://www.fixwebsiteissues.com/healthcare-seo-agency-med-marketing/)
+- [How Urgent Care Clinics Can Win with AI Search in Texas](https://www.fixwebsiteissues.com/urgent-care-ai-search-texas/)
+- [How Urgent Care Clinics Can Win with AI Search in Florida](https://www.fixwebsiteissues.com/urgent-care-ai-search-florida/)
+
+## Optional
+
+- [Blog](https://www.fixwebsiteissues.com/fix-website-issues-blogs/)
+- [How to get your business mentioned in ChatGPT](https://www.fixwebsiteissues.com/how-to-get-your-business-mentioned-in-chatgpt/)
+- [Sitemap](https://www.fixwebsiteissues.com/sitemap_index.xml)

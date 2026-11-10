@@ -1,0 +1,81 @@
+/* Migrated from Divi child theme Additional CSS */
+/*
+You can add your own CSS here.
+ */
+.testimonial {
+ z-index:2
+} 
+
+/*Mobile Menu Adding Text*/
+.mobile_menu_bar:after {
+    position: relative;
+    top: 17px;
+    left: 0;
+    font-size: 18px;
+    content: "MENU";
+    cursor: pointer;
+}
+
+/*Main Header Display none*/
+#main-header{
+	display: none !important;
+}
+
+.section-overlap:before {
+content:'';
+width:100%;
+position:absolute;
+height:90%;
+top:-90%;
+z-index:1;
+background-color:#fff; /* Change to the same color as your bottom section 
+*/ }
+
+/* Migrated from Divi Additional CSS */
+#main-header .nav li ul a {
+    color: #546180 !important;
+}
+.blurb-button{
+	color: #546180;
+    text-decoration: none;
+    border: 1px solid #546180;
+    padding: 8px;
+    font-weight: bold;
+    border-radius: 10px;
+	margin: 10px 0px;
+	line-height: 4rem;
+}
+.blurb-button:hover{
+	background-color:#546180;
+	color: #ffffff;
+}
+.et_pb_blurb_description ul li a:hover{
+	font-size: 15px;
+	font-weight: bold;
+	transition: font-size 12s; 
+	transition: color 12s;
+}
+/* Disable reveal effects without disturbing normal layout */
+.animated,
+.elementor-invisible,
+[data-aos],
+.wow {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* FWI dark-box text fix: white text on dark and orange boxes, no theme bullets */
+.fwq-n .fwq-c h1,.fwq-n .fwq-c h2,.fwq-n .fwq-c h3,.fwq-n .fwq-c h4,.fwq-n .fwq-c h5,.fwq-n .fwq-c h6,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c h1,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c h2,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c h3,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c h4,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c h5,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c h6,.tp-top h1,.tp-top h2,.tp-top h3,.tp-top h4,.tp-top h5,.tp-top h6,.hst-c h1,.hst-c h2,.hst-c h3,.hst-c h4,.hst-c h5,.hst-c h6,.fwi-pol-b h1,.fwi-pol-b h2,.fwi-pol-b h3,.fwi-pol-b h4,.fwi-pol-b h5,.fwi-pol-b h6,.fwc .gr h1,.fwc .gr h2,.fwc .gr h3,.fwc .gr h4,.fwc .gr h5,.fwc .gr h6,#fwi-hsc .c-grow h1,#fwi-hsc .c-grow h2,#fwi-hsc .c-grow h3,#fwi-hsc .c-grow h4,#fwi-hsc .c-grow h5,#fwi-hsc .c-grow h6,#fwi-hsc .cx-r h1,#fwi-hsc .cx-r h2,#fwi-hsc .cx-r h3,#fwi-hsc .cx-r h4,#fwi-hsc .cx-r h5,#fwi-hsc .cx-r h6,.ctab-navy h1,.ctab-navy h2,.ctab-navy h3,.ctab-navy h4,.ctab-navy h5,.ctab-navy h6,#fwi-er .hero h1,#fwi-er .hero h2,#fwi-er .hero h3,#fwi-er .hero h4,#fwi-er .hero h5,#fwi-er .hero h6,#fwi-er .navy h1,#fwi-er .navy h2,#fwi-er .navy h3,#fwi-er .navy h4,#fwi-er .navy h5,#fwi-er .navy h6,#fwi-wp .hero h1,#fwi-wp .hero h2,#fwi-wp .hero h3,#fwi-wp .hero h4,#fwi-wp .hero h5,#fwi-wp .hero h6,.adv-dark h1,.adv-dark h2,.adv-dark h3,.adv-dark h4,.adv-dark h5,.adv-dark h6{color:#fff!important}
+.fwq-n .fwq-c p,.fwq-n .fwq-c li,.fwq-n .fwq-c small,.fwq-n .fwq-c td,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c p,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c li,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c small,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c td,.tp-top p,.tp-top li,.tp-top small,.tp-top td,.hst-c p,.hst-c li,.hst-c small,.hst-c td,.fwi-pol-b p,.fwi-pol-b li,.fwi-pol-b small,.fwi-pol-b td,.fwc .gr p,.fwc .gr li,.fwc .gr small,.fwc .gr td,#fwi-hsc .c-grow p,#fwi-hsc .c-grow li,#fwi-hsc .c-grow small,#fwi-hsc .c-grow td,#fwi-hsc .cx-r p,#fwi-hsc .cx-r li,#fwi-hsc .cx-r small,#fwi-hsc .cx-r td,.ctab-navy p,.ctab-navy li,.ctab-navy small,.ctab-navy td,#fwi-er .hero p,#fwi-er .hero li,#fwi-er .hero small,#fwi-er .hero td,#fwi-er .navy p,#fwi-er .navy li,#fwi-er .navy small,#fwi-er .navy td,#fwi-wp .hero p,#fwi-wp .hero li,#fwi-wp .hero small,#fwi-wp .hero td,.adv-dark p,.adv-dark li,.adv-dark small,.adv-dark td{color:#D6DEEC!important}
+.fwq-n .fwq-c strong,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c strong,.tp-top strong,.hst-c strong,.fwi-pol-b strong,.fwc .gr strong,#fwi-hsc .c-grow strong,#fwi-hsc .cx-r strong,.ctab-navy strong,#fwi-er .hero strong,#fwi-er .navy strong,#fwi-wp .hero strong,.adv-dark strong{color:#fff!important}
+.fwq-o .fwq-c h1,.fwq-o .fwq-c h2,.fwq-o .fwq-c h3,.fwq-o .fwq-c h4,.fwq-o .fwq-c h5,.fwq-o .fwq-c h6,.fwq-o .fwq-c strong,.fwend h1,.fwend h2,.fwend h3,.fwend h4,.fwend h5,.fwend h6,.fwend strong,.fwb-c h1,.fwb-c h2,.fwb-c h3,.fwb-c h4,.fwb-c h5,.fwb-c h6,.fwb-c strong,.fwc .ct2 h1,.fwc .ct2 h2,.fwc .ct2 h3,.fwc .ct2 h4,.fwc .ct2 h5,.fwc .ct2 h6,.fwc .ct2 strong,.ctab-orange h1,.ctab-orange h2,.ctab-orange h3,.ctab-orange h4,.ctab-orange h5,.ctab-orange h6,.ctab-orange strong,#fwi-er .orange h1,#fwi-er .orange h2,#fwi-er .orange h3,#fwi-er .orange h4,#fwi-er .orange h5,#fwi-er .orange h6,#fwi-er .orange strong,#fwi-wp .final h1,#fwi-wp .final h2,#fwi-wp .final h3,#fwi-wp .final h4,#fwi-wp .final h5,#fwi-wp .final h6,#fwi-wp .final strong,#fwi-er section[style*="gradient"] h1,#fwi-er section[style*="gradient"] h2,#fwi-er section[style*="gradient"] h3,#fwi-er section[style*="gradient"] h4,#fwi-er section[style*="gradient"] h5,#fwi-er section[style*="gradient"] h6,#fwi-er section[style*="gradient"] strong{color:#fff!important}
+.fwq-o .fwq-c p,.fwq-o .fwq-c li,.fwq-o .fwq-c small,.fwend p,.fwend li,.fwend small,.fwb-c p,.fwb-c li,.fwb-c small,.fwc .ct2 p,.fwc .ct2 li,.fwc .ct2 small,.ctab-orange p,.ctab-orange li,.ctab-orange small,#fwi-er .orange p,#fwi-er .orange li,#fwi-er .orange small,#fwi-wp .final p,#fwi-wp .final li,#fwi-wp .final small,#fwi-er section[style*="gradient"] p,#fwi-er section[style*="gradient"] li,#fwi-er section[style*="gradient"] small{color:#FFF6EE!important}
+.fwq-n .fwq-c ul,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c ul,.tp-top ul,.hst-c ul,.fwi-pol-b ul,.fwc .gr ul,#fwi-hsc .c-grow ul,#fwi-hsc .cx-r ul,.ctab-navy ul,#fwi-er .hero ul,#fwi-er .navy ul,#fwi-wp .hero ul,.adv-dark ul,.fwq-o .fwq-c ul,.fwend ul,.fwb-c ul,.fwc .ct2 ul,.ctab-orange ul,#fwi-er .orange ul,#fwi-wp .final ul,#fwi-er section[style*="gradient"] ul{list-style:none!important;padding-left:0!important;margin-left:0!important}
+.fwq-n .fwq-c li,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c li,.tp-top li,.hst-c li,.fwi-pol-b li,.fwc .gr li,#fwi-hsc .c-grow li,#fwi-hsc .cx-r li,.ctab-navy li,#fwi-er .hero li,#fwi-er .navy li,#fwi-wp .hero li,.adv-dark li,.fwq-o .fwq-c li,.fwend li,.fwb-c li,.fwc .ct2 li,.ctab-orange li,#fwi-er .orange li,#fwi-wp .final li,#fwi-er section[style*="gradient"] li{list-style:none!important}
+.fwq-n .fwq-c li::marker,.fwq:not(.fwq-o):not(.fwq-n) .fwq-c li::marker,.tp-top li::marker,.hst-c li::marker,.fwi-pol-b li::marker,.fwc .gr li::marker,#fwi-hsc .c-grow li::marker,#fwi-hsc .cx-r li::marker,.ctab-navy li::marker,#fwi-er .hero li::marker,#fwi-er .navy li::marker,#fwi-wp .hero li::marker,.adv-dark li::marker,.fwq-o .fwq-c li::marker,.fwend li::marker,.fwb-c li::marker,.fwc .ct2 li::marker,.ctab-orange li::marker,#fwi-er .orange li::marker,#fwi-wp .final li::marker,#fwi-er section[style*="gradient"] li::marker{content:""!important}
+.fwq-o li:before{content:'✓'!important;display:inline-flex!important;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#fff!important;color:#E8641B!important;font-size:10px;font-weight:900;margin-right:2px}
+.fwq-n li:before,.fwq:not(.fwq-o):not(.fwq-n) li:before{content:'✓'!important;color:#67E8F9!important}
+.fwq h3 span,.fwend h3 span,.fwbx h3 span{color:inherit!important}
+.fwq-c > div > p:empty,.fwq-c p:empty,.fwbx p:empty,.fwend p:empty{display:none!important}

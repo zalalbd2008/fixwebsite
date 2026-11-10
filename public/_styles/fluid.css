@@ -1,0 +1,9 @@
+/* Fluid ("liquid") layer — loaded after all WordPress / Elementor CSS. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { overflow-x: clip; }
+img, video, iframe, embed, object { max-width: 100%; }
+img, video { height: auto; }
+iframe { max-width: 100%; }
+table { max-width: 100%; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.elementor-widget-text-editor, .elementor-heading-title, .elementor-post__title { overflow-wrap: break-word; }

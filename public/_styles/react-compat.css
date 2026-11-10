@@ -1,0 +1,5 @@
+/* Styles Elementor's JavaScript used to apply at runtime */
+.elementor-popup-modal [data-elementor-type=popup] { display: block; }
+.elementor-sticky__spacer { pointer-events: none; }
+.elementor-widget-slides .swiper-wrapper { display: flex; transition-property: transform; }
+.elementor-widget-slides .swiper-slide { flex-shrink: 0; width: 100%; }

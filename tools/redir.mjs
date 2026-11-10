@@ -1,0 +1,11 @@
+import fs from 'fs'; import pLimit from 'p-limit';
+const raw=JSON.parse(fs.readFileSync('redirects_raw.json','utf8'));
+const O='https://www.fixwebsiteissues.com';
+const src=new Set();
+for (const r of Object.values(raw.yoast)) src.add('/'+r.origin.replace(/^\/+/,'').replace(/\/?$/,'/'));
+for (const r of raw.wf301) src.add('/'+r.url_from.replace(/^\/+/,'').replace(/\/?$/,'/'));
+const lim=pLimit(5); const out=[];
+await Promise.all([...src].map(p=>lim(async()=>{const r=await fetch(O+p,{redirect:'manual',headers:{'user-agent':'Mozilla/5.0 (site-migration-crawler)'}}); out.push({source:p,status:r.status,location:r.headers.get('location')}); await r.arrayBuffer().catch(()=>{});})));
+out.sort((a,b)=>a.source.localeCompare(b.source));
+fs.writeFileSync('redirects_live.json',JSON.stringify(out,null,1));
+const c={}; out.forEach(o=>c[o.status]=(c[o.status]||0)+1); console.log(c);
