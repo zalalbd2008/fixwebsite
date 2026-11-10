@@ -72,3 +72,10 @@ The `tools/` folder holds the read-only scripts used for the conversion:
 5. `tools/fluidify.mjs`: fluid typography
 
 Run steps 1–4, then step 5, then `npm run build`.
+
+## Verification (done against the live site)
+
+* All 453 URLs answer `200`; all 877 referenced images / CSS files exist locally.
+* SEO tags (title, meta, canonical, prev/next, JSON-LD, H1) identical on all 453 pages.
+* Screenshots of live vs this version at 1440px and iPhone width differ by about 0–2% on the pages checked.
+* Menu, sticky header, popups, forms (→ `/request-received/`), accordion, search, drawer and tab bar tested in a browser.

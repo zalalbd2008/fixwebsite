@@ -16,6 +16,13 @@ fs.rmSync(path.join(OUT, 'pages'), { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'pages'), { recursive: true });
 fs.mkdirSync(path.join(PUB, '_styles'), { recursive: true });
 
+// Collapse Elementor's indentation whitespace (keeps <pre>, <textarea>, <script>, <style> as they are)
+function squeeze(html) {
+  const keep = [];
+  html = html.replace(/<(pre|textarea|script|style)\b[\s\S]*?<\/\1>/gi, (m) => { keep.push(m); return `\u0000${keep.length - 1}\u0000`; });
+  html = html.replace(/[ \t\r\n]{2,}/g, (m) => (m.includes('\n') ? '\n' : ' '));
+  return html.replace(/\u0000(\d+)\u0000/g, (_, i) => keep[Number(i)]);
+}
 const md5 = (s) => crypto.createHash('md5').update(s).digest('hex').slice(0, 12);
 const keyFor = (p) => (p === '/' ? 'home' : p.replace(/^\/|\/$/g, '').replace(/\//g, '__'));
 
@@ -152,7 +159,7 @@ function processFile(file, routePath, status, type) {
   body.children('link[rel=stylesheet]').each((_, el) => { page.styles.push(rel(el.attribs.href).replace(/\?ver=[^&]*$/, '')); $(el).remove(); });
 
   // what is left = page content (+ page specific popups)
-  page.html = body.html().trim();
+  page.html = squeeze(body.html().trim());
 
   // search index entry
   const desc = page.metas.find((m) => m.name === 'description')?.content || '';
@@ -202,7 +209,7 @@ processFile(path.join(SRC, 'html_search.html'), '/__search/', 200, 'search');
 
 // ---------- layout (most common variant of each shared part) ----------
 const best = (k) => Object.entries(layoutVotes[k] || {}).sort((a, b) => b[1] - a[1])[0]?.[0] || '';
-const layout = { header: best('header'), footer: best('footer'), popup: best('popup') };
+const layout = { header: squeeze(best('header')), footer: squeeze(best('footer')), popup: squeeze(best('popup')) };
 fs.writeFileSync(path.join(OUT, 'layout.json'), JSON.stringify(layout));
 fs.writeFileSync(path.join(PUB, '_styles', 'fwi-app.css'), rel(best('appCss')));
 fs.writeFileSync(path.join(PUB, '_styles', 'fwi-mbar.css'), rel(best('mbarCss')));

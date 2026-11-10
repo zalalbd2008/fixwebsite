@@ -1,63 +1,96 @@
-// "Liquid" typography: turns fixed large font sizes in the Elementor CSS into clamp() values,
-// so text scales smoothly between Elementor's breakpoints instead of jumping.
-// Desktop size is reached at 1440px, tablet size at 1024px, mobile size at 390px. Idempotent.
+// "Liquid" typography for the Elementor CSS.
+//
+// Font sizes stay EXACTLY as designed at the Elementor breakpoints (1440 / 1024 / 767 / 390 px),
+// and scale smoothly with clamp() in the widths between them. The original rules are not touched:
+// extra rules are appended at the end of each file inside range-limited media queries.
+//
+//   desktop rule  N px  -> between 1025 and 1439 px: scales down to 0.8 N
+//   tablet rule   T px  -> between  768 and 1023 px: scales down to 0.85 T
+//   mobile rule   M px  -> below 389 px:            scales down to 0.86 M
+//
+// Idempotent: files that already contain the marker are rebuilt from the part before it.
 // Usage: node tools/fluidify.mjs
 import fs from 'fs';
 import path from 'path';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const DIRS = [path.join(ROOT, 'public/wp-content/uploads/elementor/css'), path.join(ROOT, 'public/wp-content/cache/flying-press'), path.join(ROOT, 'public/_styles')];
-const r = (n) => Math.round(n * 100) / 100;
+const DIRS = ['public/wp-content/uploads/elementor/css', 'public/wp-content/cache/flying-press', 'public/_styles'].map((d) => path.join(ROOT, d));
+const MARK = '/* fluid-typography (tools/fluidify.mjs) */';
+const r = (n) => Math.round(n * 1000) / 1000;
 
-function fluid(px, ctx) {
-  if (ctx === 'mobile') return px >= 26 ? `clamp(${r(px * 0.86)}px, ${r((px / 390) * 100)}vw, ${px}px)` : null;
-  if (ctx === 'tablet') return px >= 26 ? `clamp(${r(px * 0.8)}px, ${r((px / 1024) * 100)}vw, ${px}px)` : null;
-  return px >= 28 ? `clamp(${r(Math.max(px * 0.7, 24))}px, ${r((px / 1440) * 100)}vw, ${px}px)` : null;
-}
+const RANGES = {
+  desktop: { media: '(min-width:1025px) and (max-width:1439px)', ref: 1440, min: 0.8, from: 24 },
+  tablet: { media: '(min-width:768px) and (max-width:1023px)', ref: 1024, min: 0.85, from: 24 },
+  mobile: { media: '(max-width:389px)', ref: 390, min: 0.86, from: 24 },
+};
 
-function contextOf(stack) {
-  const q = stack.join(' ');
-  if (/max-width:\s*(767|480|575|600|640|700)/.test(q)) return 'mobile';
-  if (/max-width:\s*(1024|1023|1100|1200|880|900|960|991|992)/.test(q)) return 'tablet';
-  if (/max-width/.test(q)) return 'other';
+function contextOf(atRules) {
+  const q = atRules.join(' ');
+  if (/min-width/.test(q) && !/max-width/.test(q)) return /min-width:\s*(1025|1440|1441|1366|1200|1280)/.test(q) ? null : null; // wide-only rules: leave
+  if (/max-width:\s*(767|768)px/.test(q)) return 'mobile';
+  if (/max-width:\s*(1024|1023)px/.test(q)) return 'tablet';
+  if (atRules.some((a) => /^@media/.test(a))) return null; // other custom ranges: leave alone
+  if (atRules.some((a) => /^@(keyframes|font-face|supports|container|layer)/.test(a))) return null;
   return 'desktop';
 }
 
-function transform(css) {
-  let out = '', i = 0, changed = 0;
-  const stack = []; // prelude of each open block ('' for normal rules)
-  let buf = '';
+function collect(css) {
+  const found = { desktop: [], tablet: [], mobile: [] };
+  const stack = []; // { kind: 'at'|'rule', text }
+  let buf = '', i = 0;
   while (i < css.length) {
     const ch = css[i];
-    if (ch === '/' && css[i + 1] === '*') { const e = css.indexOf('*/', i + 2); const end = e < 0 ? css.length : e + 2; buf += css.slice(i, end); i = end; continue; }
-    if (ch === '{') { stack.push(buf.trim().startsWith('@') ? buf.trim() : ''); out += buf + ch; buf = ''; i++; continue; }
-    if (ch === '}' || ch === ';') {
-      // a declaration ends here
-      const ctx = contextOf(stack.filter(Boolean));
-      if (ctx !== 'other') {
-        buf = buf.replace(/(^|[\s;{])font-size\s*:\s*([0-9.]+)px(\s*!important)?\s*$/, (m, pre, n, imp) => {
-          const f = fluid(parseFloat(n), ctx);
-          if (!f) return m;
-          changed++;
-          return `${pre}font-size:${f}${imp || ''}`;
-        });
+    if (ch === '/' && css[i + 1] === '*') { const e = css.indexOf('*/', i + 2); i = e < 0 ? css.length : e + 2; continue; }
+    if (ch === '"' || ch === "'") { const e = css.indexOf(ch, i + 1); buf += css.slice(i, e < 0 ? css.length : e + 1); i = e < 0 ? css.length : e + 1; continue; }
+    if (ch === '{') { const t = buf.trim(); stack.push({ kind: t.startsWith('@') ? 'at' : 'rule', text: t }); buf = ''; i++; continue; }
+    if (ch === ';' || ch === '}') {
+      const top = stack[stack.length - 1];
+      if (top && top.kind === 'rule') {
+        // every font-size is repeated (small / non-px ones unchanged) so the cascade order stays the same
+        const m = buf.trim().match(/^font-size\s*:\s*(.+?)\s*(!important)?$/i);
+        if (m) {
+          const ctx = contextOf(stack.filter((s) => s.kind === 'at').map((s) => s.text));
+          if (ctx) found[ctx].push({ sel: top.text, value: m[1], imp: m[2] || '' });
+        }
       }
-      out += buf + ch; buf = '';
+      buf = '';
       if (ch === '}') stack.pop();
       i++; continue;
     }
     buf += ch; i++;
   }
-  return { css: out + buf, changed };
+  return found;
+}
+
+function build(found) {
+  let out = '';
+  for (const [ctx, rules] of Object.entries(found)) {
+    if (!rules.length) continue;
+    const { media, ref, min } = RANGES[ctx];
+    out += `@media ${media}{`;
+    for (const { sel, value, imp } of rules) {
+      const px = /^[0-9.]+px$/.test(value) ? parseFloat(value) : 0;
+      const v = px >= RANGES[ctx].from ? `clamp(${r(px * min)}px,${r((px / ref) * 100)}vw,${px}px)` : value;
+      out += `${sel}{font-size:${v}${imp ? ' !important' : ''}}`;
+    }
+    out += '}';
+  }
+  return out;
 }
 
 let files = 0, total = 0;
 for (const dir of DIRS) {
   for (const f of fs.readdirSync(dir)) {
-    if (!f.endsWith('.css') || f === 'fluid.css') continue;
+    if (!f.endsWith('.css') || f === 'fluid.css' || f === 'react-compat.css') continue;
     const p = path.join(dir, f);
-    const { css, changed } = transform(fs.readFileSync(p, 'utf8'));
-    if (changed) { fs.writeFileSync(p, css); files++; total += changed; }
+    let css = fs.readFileSync(p, 'utf8');
+    const k = css.indexOf('\n' + MARK);
+    if (k >= 0) css = css.slice(0, k);
+    const found = collect(css);
+    const big = (l) => l.filter((x) => /^[0-9.]+px$/.test(x.value) && parseFloat(x.value) >= 24);
+    for (const c of Object.keys(found)) if (!big(found[c]).length) found[c] = [];
+    const n = big(found.desktop).length + big(found.tablet).length + big(found.mobile).length;
+    if (n) { fs.writeFileSync(p, css + '\n' + MARK + '\n' + build(found) + '\n'); files++; total += n; }
   }
 }
 console.log(`fluid typography: ${total} font sizes in ${files} files`);

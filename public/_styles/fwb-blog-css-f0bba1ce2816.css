@@ -17,7 +17,7 @@
 .fwb-toc a.on{border-left-color:var(--o);color:var(--ink);font-weight:600}
 .fwb-toc .fwb-toc-cta{margin:18px 0 0 16px;font-size:13px;line-height:1.5;color:var(--g)}
 .fwb-toc .fwb-toc-cta a{display:inline;padding:0;margin:0;border:0;color:var(--oa);font-weight:600}
-.fwb-art h1{font-size:clamp(28px, 2.78vw, 40px);line-height:1.18;font-weight:700;margin:0 0 16px;color:var(--ink);letter-spacing:-.01em}
+.fwb-art h1{font-size:40px;line-height:1.18;font-weight:700;margin:0 0 16px;color:var(--ink);letter-spacing:-.01em}
 .fwb-meta{font-size:13.5px;color:var(--g);margin:0 0 24px;display:flex;flex-wrap:wrap;gap:6px 16px}
 .fwb-meta b{color:var(--ink);font-weight:600}
 .fwb-hero{margin:0 0 28px}
@@ -91,3 +91,6 @@
 .fwb-art .fwb-ai-cta{margin:14px 0 0;font-weight:600;border-top:1px solid var(--line);padding-top:14px}
 @media (max-width:860px){.fwb-ai{padding:20px 18px 10px}.fwb-art .fwb-qa p{padding-left:0}}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* fluid-typography (tools/fluidify.mjs) */
+@media (min-width:1025px) and (max-width:1439px){.fwb-crumbs{font-size:13px}.fwb-toc summary{font-size:12px}.fwb-toc a{font-size:14px}.fwb-toc .fwb-toc-cta{font-size:13px}.fwb-art h1{font-size:clamp(32px,2.778vw,40px)}.fwb-meta{font-size:13.5px}.fwb-hero figcaption{font-size:12.5px}.fwb-art p,.fwb-art li{font-size:17px}.fwb-art h2{font-size:clamp(21.6px,1.875vw,27px)}.fwb-art h3{font-size:20px}.fwb-answer .fwb-lbl{font-size:12px}.fwb-table{font-size:15px}.fwb-table th{font-size:13px}.fwb-note{font-size:14.5px}.fwb-btn{font-size:15px}.fwb-xfaq summary{font-size:17.5px}.fwb-xfaq summary:after{font-size:22px}.fwb-src{font-size:14px}.fwb-src li{font-size:14px}.fwb-rel li{font-size:15.5px}.fwb-end h2{font-size:clamp(19.2px,1.667vw,24px)}.fwb-ai-lbl{font-size:12px !important}.fwb-art .fwb-ai h2{font-size:clamp(19.2px,1.667vw,24px)}.fwb-art .fwb-qa h3{font-size:17.5px}.fwb-qa h3:before{font-size:13px}}
